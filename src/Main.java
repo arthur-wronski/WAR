@@ -1,9 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        Deck deck = new Deck();
-        deck.generateStartingDeck();
-        System.out.println("Deck Size: " + deck.getDeckSize());
-        System.out.println("First Card: " + deck.cards.getFirst());
-        System.out.println("First Card value: " + deck.cards.getFirst().getRankValue());
+        Deck startingDeck = new Deck();
+        startingDeck.generateStartingDeck();
+
+        Game game = new Game();
+        game.distributeCards(startingDeck);
+
+        Deck playerOneDeck = game.getPlayerOneDeck();
+        Deck playerTwoDeck = game.getPlayerTwoDeck();
+
+        System.out.println("Player One deck size: " + playerOneDeck.getDeckSize());
+        System.out.println("Player Two deck size: " + playerTwoDeck.getDeckSize());
+
+        System.out.println("Player One first card: " + playerOneDeck.cards.getFirst());
+        System.out.println("Player Two first card: " + playerTwoDeck.cards.getFirst());
     }
 }
