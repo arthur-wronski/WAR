@@ -9,10 +9,14 @@ public class Main {
         Deck playerOneDeck = game.getPlayerOneDeck();
         Deck playerTwoDeck = game.getPlayerTwoDeck();
 
-        System.out.println("Player One deck size: " + playerOneDeck.getDeckSize());
-        System.out.println("Player Two deck size: " + playerTwoDeck.getDeckSize());
+        while (playerOneDeck.getDeckSize() > 0 && playerTwoDeck.getDeckSize() > 0){
+            game.playRound();
+        }
 
-        System.out.println("Player One first card: " + playerOneDeck.cards.getFirst());
-        System.out.println("Player Two first card: " + playerTwoDeck.cards.getFirst());
+        if (playerOneDeck.getDeckSize() == 0){
+            System.out.println("Player 2 wins the game!");
+        } else if (playerTwoDeck.getDeckSize() == 0) {
+            System.out.println("Player 1 wins");
+        }
     }
 }
