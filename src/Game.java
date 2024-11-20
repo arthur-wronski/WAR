@@ -16,19 +16,12 @@ public class Game {
     public void distributeCards(Deck startingDeck){
         int startingDeckSize = startingDeck.getDeckSize();
 
+        // give half of the shuffled starting deck to each player
         playerOneDeck.setCards( new ArrayList<Card>(startingDeck.getCards().subList(0, startingDeckSize / 2)));
         playerTwoDeck.setCards( new ArrayList<Card>(startingDeck.getCards().subList(startingDeckSize / 2, startingDeckSize)));
     }
 
-    public Deck getPlayerOneDeck() {
-        return playerOneDeck;
-    }
-
-    public Deck getPlayerTwoDeck() {
-        return playerTwoDeck;
-    }
-
-    public void addCardToPile(Card card){
+    public void addCardToPlayPile(Card card){
         cardsInPlay.addToDeck(card);
     }
 
@@ -55,8 +48,8 @@ public class Game {
         Card playerOneTopCard = playerOneDeck.takeTopCard();
         Card playerTwoTopCard = playerTwoDeck.takeTopCard();
 
-        addCardToPile(playerOneTopCard);
-        addCardToPile(playerTwoTopCard);
+        addCardToPlayPile(playerOneTopCard);
+        addCardToPlayPile(playerTwoTopCard);
 
         System.out.println("Player 1 plays card: " + playerOneTopCard);
         System.out.println("Player 2 plays card: " + playerTwoTopCard);
@@ -76,8 +69,8 @@ public class Game {
                 System.out.println("Player 2 doesn't have enough cards to fight the WAR");
                 return;
             }
-            addCardToPile(playerOneDeck.takeTopCard());
-            addCardToPile(playerTwoDeck.takeTopCard());
+            addCardToPlayPile(playerOneDeck.takeTopCard());
+            addCardToPlayPile(playerTwoDeck.takeTopCard());
             playRound();
         }
     }
