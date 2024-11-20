@@ -1,16 +1,17 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game {
-    // needs to track deck of both players
-    // needs a playRound() function that plays the top card of each player's deck and handles win condition
-    // handle game loop - play until one of the decks is empty
-
     Deck playerOneDeck;
     Deck playerTwoDeck;
+
+    Deck cardsInPlay;
 
     public Game(){
         this.playerOneDeck = new Deck();
         this.playerTwoDeck = new Deck();
+
+        this.cardsInPlay = new Deck();
     }
 
     public void distributeCards(Deck startingDeck){
@@ -26,5 +27,45 @@ public class Game {
 
     public Deck getPlayerTwoDeck() {
         return playerTwoDeck;
+    }
+
+    public void addCardToPile(Card card){
+        cardsInPlay.addToDeck(card);
+    }
+
+    public void addCardsToWinner(Deck winnerDeck){
+        cardsInPlay.shuffleDeck();
+
+        for (Card card: cardsInPlay.cards) {
+            winnerDeck.addToDeck(card);
+        }
+        cardsInPlay.cards.clear();
+    }
+
+    public void playRound(){
+        System.out.println("Player One deck size: " + playerOneDeck.getDeckSize());
+        System.out.println("Player Two deck size: " + playerTwoDeck.getDeckSize());
+
+        Card playerOneTopCard = playerOneDeck.takeTopCard();
+        Card playerTwoTopCard = playerTwoDeck.takeTopCard();
+
+        addCardToPile(playerOneTopCard);
+        addCardToPile(playerTwoTopCard);
+
+        System.out.println("Player 1 plays card: " + playerOneTopCard + " with value: " + playerOneTopCard.getRankValue());
+        System.out.println("Player 2 plays card: " + playerTwoTopCard + " with value: " + playerTwoTopCard.getRankValue());
+
+        if (playerOneTopCard.getRankValue() > playerTwoTopCard.getRankValue()){
+            System.out.println("Player 1 wins!");
+            addCardsToWinner(playerOneDeck);
+        } else if (playerOneTopCard.getRankValue() < playerTwoTopCard.getRankValue()) {
+            System.out.println("Player 2 wins!");
+            addCardsToWinner(playerTwoDeck);
+        }else{
+            System.out.println("Draw!");
+            addCardToPile(playerOneDeck.takeTopCard());
+            addCardToPile(playerTwoDeck.takeTopCard());
+            playRound();
+        }
     }
 }
