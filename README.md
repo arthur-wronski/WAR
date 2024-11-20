@@ -27,7 +27,6 @@ WAR is a simple card game played between two players. The game begins by splitti
 2. **Clone the Repository**:
    ```bash
    git clone https://github.com/arthur-wronski/WAR.git
-   cd war-card-game-java
    ```
 3. **Compile the Code**:
    ```bash
