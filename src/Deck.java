@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards;
 
     public Deck(){
         this.cards = new ArrayList<Card>();
@@ -45,5 +45,9 @@ public class Deck {
     public void addToDeck(Card card) {
         // adds card to bottom of deck
         cards.add(card);
+    }
+
+    public void emptyDeck() {
+        cards.clear();
     }
 }
