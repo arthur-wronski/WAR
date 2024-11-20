@@ -42,11 +42,6 @@ public class Deck {
         return cards.removeFirst();
     }
 
-    public void addToDeck(Card card) {
-        // adds card to bottom of deck
-        cards.add(card);
-    }
-
     public void emptyDeck() {
         cards.clear();
     }

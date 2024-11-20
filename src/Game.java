@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public class Game {
-    Deck playerOneDeck;
-    Deck playerTwoDeck;
+    private final Deck playerOneDeck;
+    private final Deck playerTwoDeck;
 
-    Deck cardsInPlay;
+    private final Deck cardsInPlay;
 
     public Game(){
         this.playerOneDeck = new Deck();
@@ -13,7 +13,7 @@ public class Game {
         this.cardsInPlay = new Deck();
     }
 
-    public void distributeCards(Deck startingDeck){
+    private void distributeCards(Deck startingDeck){
         int startingDeckSize = startingDeck.getDeckSize();
 
         // give half of the shuffled starting deck to each player
@@ -21,27 +21,27 @@ public class Game {
         playerTwoDeck.setCards( new ArrayList<Card>(startingDeck.getCards().subList(startingDeckSize / 2, startingDeckSize)));
     }
 
-    public void addCardToPlayPile(Card card){
-        cardsInPlay.addToDeck(card);
+    private void addCardToPlayPile(Card card){
+        cardsInPlay.addCardToDeck(card);
     }
 
-    public void addCardsToWinner(Deck winnerDeck){
+    private void addCardsToWinner(Deck winnerDeck){
         cardsInPlay.shuffleDeck();
 
         for (Card card: cardsInPlay.getCards()) {
-            winnerDeck.addToDeck(card);
+            winnerDeck.addCardToDeck(card);
         }
         cardsInPlay.emptyDeck();
     }
 
-    public void initialiseGame(){
+    private void initialiseGame(){
         Deck startingDeck = new Deck();
         startingDeck.generateStartingDeck();
 
         distributeCards(startingDeck);
     }
 
-    public void playRound(){
+    private void playRound(){
         System.out.println("Player One deck size: " + playerOneDeck.getDeckSize());
         System.out.println("Player Two deck size: " + playerTwoDeck.getDeckSize());
 
