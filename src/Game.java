@@ -58,8 +58,8 @@ public class Game {
         addCardToPile(playerOneTopCard);
         addCardToPile(playerTwoTopCard);
 
-        System.out.println("Player 1 plays card: " + playerOneTopCard + " with value: " + playerOneTopCard.getRankValue());
-        System.out.println("Player 2 plays card: " + playerTwoTopCard + " with value: " + playerTwoTopCard.getRankValue());
+        System.out.println("Player 1 plays card: " + playerOneTopCard);
+        System.out.println("Player 2 plays card: " + playerTwoTopCard);
 
         if (playerOneTopCard.getRankValue() > playerTwoTopCard.getRankValue()){
             System.out.println("Player 1 wins!");
