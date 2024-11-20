@@ -55,10 +55,10 @@ public class Game {
         System.out.println("Player 2 plays card: " + playerTwoTopCard);
 
         if (playerOneTopCard.getRankValue() > playerTwoTopCard.getRankValue()){
-            System.out.println("Player 1 wins!");
+            System.out.println("Player 1 wins the round!");
             addCardsToWinner(playerOneDeck);
         } else if (playerOneTopCard.getRankValue() < playerTwoTopCard.getRankValue()) {
-            System.out.println("Player 2 wins!");
+            System.out.println("Player 2 wins the round!");
             addCardsToWinner(playerTwoDeck);
         }else{
             System.out.println("Draw!");
@@ -85,7 +85,7 @@ public class Game {
         if (playerOneDeck.getDeckSize() == 0){
             System.out.println("Player 2 wins the game!");
         } else if (playerTwoDeck.getDeckSize() == 0) {
-            System.out.println("Player 1 wins");
+            System.out.println("Player 1 wins the game");
         }
     }
 }
