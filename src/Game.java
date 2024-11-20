@@ -81,4 +81,18 @@ public class Game {
             playRound();
         }
     }
+
+    public void playGame(){
+        initialiseGame();
+
+        while (playerOneDeck.getDeckSize() > 0 && playerTwoDeck.getDeckSize() > 0){
+            playRound();
+        }
+
+        if (playerOneDeck.getDeckSize() == 0){
+            System.out.println("Player 2 wins the game!");
+        } else if (playerTwoDeck.getDeckSize() == 0) {
+            System.out.println("Player 1 wins");
+        }
+    }
 }
