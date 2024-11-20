@@ -36,4 +36,14 @@ public class Deck {
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
+
+    public Card takeTopCard() {
+        // Note: this also pops top card from deck
+        return cards.removeFirst();
+    }
+
+    public void addToDeck(Card card) {
+        // adds card to bottom of deck
+        cards.add(card);
+    }
 }
