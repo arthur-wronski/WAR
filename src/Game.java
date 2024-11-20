@@ -70,6 +70,13 @@ public class Game {
             addCardsToWinner(playerTwoDeck);
         }else{
             System.out.println("Draw!");
+            if (playerOneDeck.getDeckSize() <= 1){
+                System.out.println("Player 1 doesn't have enough cards to fight the WAR");
+                return;
+            } else if (playerTwoDeck.getDeckSize() <= 1) {
+                System.out.println("Player 2 doesn't have enough cards to fight the WAR");
+                return;
+            }
             addCardToPile(playerOneDeck.takeTopCard());
             addCardToPile(playerTwoDeck.takeTopCard());
             playRound();
