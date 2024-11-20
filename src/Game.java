@@ -17,8 +17,8 @@ public class Game {
     public void distributeCards(Deck startingDeck){
         int startingDeckSize = startingDeck.getDeckSize();
 
-        playerOneDeck.setCards( new ArrayList<Card>(startingDeck.cards.subList(0, startingDeckSize / 2)));
-        playerTwoDeck.setCards( new ArrayList<Card>(startingDeck.cards.subList(startingDeckSize / 2, startingDeckSize)));
+        playerOneDeck.setCards( new ArrayList<Card>(startingDeck.getCards().subList(0, startingDeckSize / 2)));
+        playerTwoDeck.setCards( new ArrayList<Card>(startingDeck.getCards().subList(startingDeckSize / 2, startingDeckSize)));
     }
 
     public Deck getPlayerOneDeck() {
@@ -36,10 +36,17 @@ public class Game {
     public void addCardsToWinner(Deck winnerDeck){
         cardsInPlay.shuffleDeck();
 
-        for (Card card: cardsInPlay.cards) {
+        for (Card card: cardsInPlay.getCards()) {
             winnerDeck.addToDeck(card);
         }
-        cardsInPlay.cards.clear();
+        cardsInPlay.emptyDeck();
+    }
+
+    public void initialiseGame(){
+        Deck startingDeck = new Deck();
+        startingDeck.generateStartingDeck();
+
+        distributeCards(startingDeck);
     }
 
     public void playRound(){

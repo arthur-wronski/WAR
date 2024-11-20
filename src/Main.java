@@ -1,10 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Deck startingDeck = new Deck();
-        startingDeck.generateStartingDeck();
-
         Game game = new Game();
-        game.distributeCards(startingDeck);
+        game.initialiseGame();
 
         Deck playerOneDeck = game.getPlayerOneDeck();
         Deck playerTwoDeck = game.getPlayerTwoDeck();
