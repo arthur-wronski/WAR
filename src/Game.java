@@ -61,12 +61,9 @@ public class Game {
             System.out.println("Player 2 wins the round!");
             addCardsToWinner(playerTwoDeck);
         }else{
-            System.out.println("Draw!");
-            if (playerOneDeck.getDeckSize() <= 1){
-                System.out.println("Player 1 doesn't have enough cards to fight the WAR");
-                return;
-            } else if (playerTwoDeck.getDeckSize() <= 1) {
-                System.out.println("Player 2 doesn't have enough cards to fight the WAR");
+            System.out.println("Draw! Time for WAR");
+            if (playerOneDeck.getDeckSize() <= 1 || playerTwoDeck.getDeckSize() <= 1){
+                System.out.println("Not enough cards to fight the WAR");
                 return;
             }
             addCardToPlayPile(playerOneDeck.takeTopCard());
@@ -86,6 +83,9 @@ public class Game {
             System.out.println("Player 2 wins the game!");
         } else if (playerTwoDeck.getDeckSize() == 0) {
             System.out.println("Player 1 wins the game");
+        }else{
+            // The chance of a draw when playing WAR is incredibly small
+            System.out.println("By the might of Gods! It's a draw");
         }
     }
 }
