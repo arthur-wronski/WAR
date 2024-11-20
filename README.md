@@ -2,6 +2,8 @@
 
 My Java implementation of the classic card game **WAR**. This was my first Java project and a perfect introduction to the language, OOP, data structures, etc... . I did not use any AI to code this as I wanted to properly learn the language + it's a million times more fun to code without it and I recommend you to do the same.
 
+TODO: add error handling when player runs out of cards during WAR, tests, move game initialisation from Main to Game, make cards attribute private in Deck, GUI?
+
 ---
 
 ## 🎯 **Project Overview**
